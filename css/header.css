@@ -1,0 +1,112 @@
+.header {
+    background-color: var( --blackColor);
+    padding: 20px 0;
+    position: relative;
+    z-index: 2;
+}
+.header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo {
+    width: 100px;
+    height: 50px;
+}
+.nav {
+}
+.header__list {
+    display: flex;
+    align-items: center;
+    gap: 0 30px;
+    transition: all .5s ease;
+    @media (max-width: 700px){
+        display: none;
+    }
+}
+.header__link {
+    color: var(--whiteColor);
+    font-size: 16px;
+    transition: color .2s ease-in-out;
+}
+.header__link:hover {
+    color: var(--redColor);
+}
+.header__burger {
+    display: none;
+    width: 50px;
+    height: 22px;
+    padding-top: 10px;
+    position: relative;
+    z-index: 3;
+    cursor: pointer;
+}
+.header__burger span {
+    background-color: var(--whiteColor);
+    width: 70%;
+    height: 2px;
+    transform: scale(1);
+}
+
+.header__burger::before,
+.header__burger::after {
+    content: "";
+    background-color: var(--whiteColor);
+    width: 70%;
+    height: 2px;
+    position: absolute;
+    transition: all .3s ease;
+}
+
+.header__burger::before {
+    top: 0;
+}
+
+.header__burger::after {
+    bottom: 0;
+}
+
+.active.header__burger span {
+    transform: scale(0);
+}
+
+.active.header__burger::before {
+    top: 50%;
+    transform: rotate(-45deg) translate(0, -50%);
+}
+
+.active.header__burger::after {
+    bottom: 50%;
+    transform: rotate(45deg) translate(0, 50%);
+}
+.header__list-menu{
+   transition: all .5s ease;
+   display: none;
+}
+.header__list-menu.open-menu{
+    top: 0;
+}
+.header__list-menu.close-menu{
+    display: none;
+}
+
+@media (max-width: 700px){
+    .header__list-menu{
+        position: fixed;
+        top: -100%;
+        left: 0;
+        right: 0;
+        height: 450px;
+        overflow-y: auto;
+        background-color: var(--blackColor);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 40px;
+        padding-top: 100px;
+        z-index: 1;
+    }
+    .header__burger{
+        display: flex;
+    }
+}
