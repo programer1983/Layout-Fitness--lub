@@ -31,7 +31,9 @@ function openBurger(){
 
 navList.querySelectorAll(".header__link").forEach(link => {
     link.addEventListener("click", () => {
+      burgerMenu.classList.remove("active")
       navList.classList.remove("open-menu")
+      html.classList.remove("unscroll")
     })
   })
 
